@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+@model IEnumerable<Pozition>
+<table id="recent-purchases-listing" class="table">
+    <thead>
+        <a class="btn btn-dark" asp-area="Manage" asp-controller="Pozition" asp-action="Create">Create</a>
+        <tr>
+            <th>Pozition</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in (Model ?? new List<Pozition>()))
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td><a class="btn btn-check">Update</a></td>
+                <td><a class="btn btn-danger">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

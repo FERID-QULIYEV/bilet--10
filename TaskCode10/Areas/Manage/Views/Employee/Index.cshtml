@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+@model IEnumerable<Employee>
+<table id="recent-purchases-listing" class="table">
+    <thead>
+        <a class="btn btn-dark" asp-area="Manage" asp-controller="Employee" asp-action="Create">Create</a>
+        <tr>
+            <th>Image</th>
+            <th>FullName</th>
+            <th>Pozition</th>
+            <th>Facebook</th>
+            <th>Twitter</th>
+            <th>Instagram</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in (Model ?? new List<Employee>()))
+        {
+            <tr>
+                <td>
+                    <img src="~/assets/img/team/@item.Image" alt="Girl in a jacket" width="500" height="600">
+                 </td>
+                <td>@item.FullName</td>
+                <td>@item.PozisionId</td>
+                <td>@item.Facebook</td>
+                <td>@item.Twitter</td>
+                <td>@item.Instagram</td>
+                <td><a class="btn btn-danger">Update</a></td>
+                <td><a class="btn btn-danger">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
